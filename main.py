@@ -12,3 +12,9 @@ if __name__ == '__main__':
     recent_operations = last_operation(executed, date_operation)
     edited_operation = format_operation(recent_operations)
 
+    # Цикл вывода последних 5 операций
+    for item in edited_operation:
+        print()
+        print(f'{item["date"]} {item["description"]}')
+        print(f'{item["from"]} -> {item["to"]}')
+        print(f'{item["operationAmount"]["amount"]} {item["operationAmount"]["currency"]["name"]}')
