@@ -28,3 +28,7 @@ def test_last_operation():
         {"date": "2018-11-23T23:52:36.999661"}
     ], ["2018-11-23T23:52:36.999661"]) == [{'date': '2018-11-23T23:52:36.999661'}]
 
+
+def test_format_str():
+    assert utils.format_str('Hello world 0112301') == ['Hello world ', '0112301']
+
