@@ -71,3 +71,24 @@ def last_operation(executed, date_operation):
             if item in i['date']:
                 last_list.append(i)
     return last_list
+
+
+def format_str(str_f):
+    """
+
+    :param str_f: строку с данными
+    :return: список содержащий буквы отдельно от цифры
+
+    сортирует строку на цифры и буквы
+    """
+    text = ''
+    digits = ''
+    list_str = []
+    for item in str_f:
+        if item.isalpha() or item.isspace():
+            text += item
+        elif item.isdigit():
+            digits += item
+    list_str.append(text)
+    list_str.append(digits)
+    return list_str
