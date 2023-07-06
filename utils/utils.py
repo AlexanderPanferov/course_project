@@ -39,3 +39,20 @@ def completed_operation(full_operations):
         if item['state'] == 'EXECUTED':
             exe_list.append(item)
     return exe_list
+
+
+def sort_date(executed):
+    """
+
+    :param executed: список с выполненными опереациями
+    :return: отсортированный список содержащий последнии 5 дат
+    """
+    date = []
+    for item in executed:
+        date.append(item['date'])
+    date.sort(reverse=True)
+    if len(date) < 5:
+        return date
+    else:
+        date_sort = date[:5]
+    return date_sort
