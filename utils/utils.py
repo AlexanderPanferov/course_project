@@ -10,3 +10,19 @@ def load_operation(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         operation = json.load(file)
     return operation
+
+
+def selection_by_keys(operation):
+    """
+
+    :param operation: список с банковскими операциями
+    :return: фильтрованный список
+
+    Проверяет наличие ключей в словаре
+    """
+    filtered_list = []
+    keys_to_check = ['state', 'date', 'description', 'from', 'to']
+    for item in operation:
+        if all(key in item.keys() for key in keys_to_check):
+            filtered_list.append(item)
+    return filtered_list
