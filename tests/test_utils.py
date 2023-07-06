@@ -32,3 +32,11 @@ def test_last_operation():
 def test_format_str():
     assert utils.format_str('Hello world 0112301') == ['Hello world ', '0112301']
 
+
+def test_formatted_list():
+    assert utils.format_operation([
+        {'date': '2018-04-14T19:35:28.978265',
+         'from': 'Счет 27248529432547658655',
+         'to': 'Счет 79619011266276091215'}
+    ]) == [{'date': '14.04.2018', 'from': 'Счет 2724 85** **** 8655', 'to': 'Счет **1215'}]
+
