@@ -56,3 +56,18 @@ def sort_date(executed):
     else:
         date_sort = date[:5]
     return date_sort
+
+
+def last_operation(executed, date_operation):
+    """
+
+    :param executed: список с выполненными опереациями
+    :param date_operation: отсортированный список содержащий последнии 5 дат
+    :return: отсортированный список содержащий последнии 5 операций
+    """
+    last_list = []
+    for item in date_operation:
+        for i in executed:
+            if item in i['date']:
+                last_list.append(i)
+    return last_list
