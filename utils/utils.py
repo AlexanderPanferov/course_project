@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 
 def load_operation(filename):
@@ -92,3 +93,24 @@ def format_str(str_f):
     list_str.append(text)
     list_str.append(digits)
     return list_str
+
+
+def format_operation(formated):
+    """
+
+    :param formated: отсортированный список содержащий последнии 5 операций
+    :return: отредактированный список содержащий последнии 5 операций
+
+    форматирует дату
+    поля from,to
+    """
+    formatted_list = []
+    for item in formated:
+        date = datetime.strptime(item["date"], '%Y-%m-%dT%H:%M:%S.%f')
+        item["date"] = date.strftime('%d.%m.%Y')
+        send = format_str(item['from'])
+        item['from'] = f'{send[0]}{send[1][:4]} {send[1][4:6]}** **** {send[1][-4:]}'
+        accept = format_str(item['to'])
+        item["to"] = f'{accept[0]}**{accept[1][-4:]}'
+        formatted_list.append(item)
+    return formatted_list
